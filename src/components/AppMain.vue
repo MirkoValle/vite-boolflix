@@ -34,12 +34,13 @@ export default{
 
 <template>
     <div>
-        <input type="text" placeholder="Cerca un film" v-model="this.store.searched">
+        <input type="text" placeholder="Cerca un film" @keyup.enter="getFilms(); getTvSeries();" v-model="this.store.searched">
         <button @click="getFilms(); getTvSeries();">Cerca</button>
     </div>
 
     <section class="risultati">
         <ul v-for="(film, index) in store.films">
+            <img :src="'https://image.tmdb.org/t/p/w154' + film.poster_path" alt="">
             <li> {{ film.title }}</li>
             <li> {{film.original_title}} </li>
             <li> {{ film.original_language }} </li>
@@ -47,6 +48,7 @@ export default{
             <li> {{ film.vote_average }} </li>
         </ul>
         <ul v-for="(tvSerie, index) in store.tvSeries">
+            <img :src="'https://image.tmdb.org/t/p/w154' + tvSerie.poster_path" alt="">
             <li> {{ tvSerie.name }}</li>
             <li> {{ tvSerie.original_name}} </li>
             <li> {{ tvSerie.original_language }} </li>
