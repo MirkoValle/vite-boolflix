@@ -10,7 +10,8 @@ export default{
 </script>
 
 <template>
-    <h1>Serie TV</h1>
+    <h1  v-if="store.tvSeries.length > 0">Serie TV</h1>
+    <h1  v-if="store.tvSeries.length == 0 && store.searched.length > 0">Nessun risultato nelle Serie TV per la ricerca: {{ store.searched }} </h1>
     <section>
         <article v-for="(tvSerie, index) in store.tvSeries">
             <div class="cover">
@@ -19,6 +20,7 @@ export default{
             <div class="info">
                 <p> Titolo: <span>{{ tvSerie.name }}</span></p>
                 <p> Titolo originale: <span>{{ tvSerie.original_name }}</span> </p>
+                <p> Overview: <span class="overview">{{tvSerie.overview}}</span> </p>
                 <span> <img :src="'https://flagsapi.com/' + tvSerie.original_language.toUpperCase() + '/flat/32.png'"></span>
                 <div>
                     <i v-for="star in (Math.floor(tvSerie.vote_average / 2))" class="fa-solid fa-star"></i>
@@ -71,6 +73,11 @@ section {
                 color: white;
                 span{
                     color: gray;
+                }
+                span.overview{
+                    display: block;
+                    max-height: 2rem;
+                    overflow: scroll;
                 }
             }
             i{

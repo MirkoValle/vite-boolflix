@@ -11,7 +11,6 @@ export default{
 </script>
 
 <template>
-
     <input placeholder="Cerca" class="input" name="text" type="text" v-model="this.store.searched" @keyup="$emit('search')">
 </template>
 

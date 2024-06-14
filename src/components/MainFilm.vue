@@ -11,15 +11,18 @@ export default{
 </script>
 
 <template>
-    <h1>Film</h1>
+    <h1 v-if="store.films.length > 0">Film</h1>
+    <h1  v-if="store.films.length == 0 && store.searched.length > 0">Nessun risultato nei Film per la ricerca: {{ store.searched }} </h1>
     <section>
         <article v-for="(film, index) in store.films">
             <div class="cover">
-                <img :src="'https://image.tmdb.org/t/p/w185' + film.poster_path" alt="">
+                <img v-if="film.poster_path == null" src="../assets/img/placeholder.bmp" alt="">
+                <img v-else :src="'https://image.tmdb.org/t/p/w185' + film.poster_path" alt="">
             </div>
             <div class="info">
                 <p> Titolo: <span>{{ film.title }}</span></p>
                 <p> Titolo originale: <span>{{film.original_title}}</span> </p>
+                <p> Overview: <span class="overview">{{film.overview}}</span> </p>
                 <span> <img :src="'https://flagsapi.com/' + film.original_language.toUpperCase() + '/flat/32.png'"></span>
                 <div>
                     <i v-for="star in (Math.floor(film.vote_average / 2))" class="fa-solid fa-star"></i>
@@ -74,6 +77,11 @@ section {
                 color: white;
                 span{
                     color: gray;
+                }
+                span.overview{
+                    display: block;
+                    max-height: 2rem;
+                    overflow: scroll;
                 }
             }
             i{

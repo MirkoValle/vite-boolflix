@@ -28,7 +28,7 @@ export default{
     main{
         background-color: #212121;
         height: calc(100vh - 99px);
-        padding: 5rem;
+        padding: 2rem 5rem;
     }
 
 </style>
