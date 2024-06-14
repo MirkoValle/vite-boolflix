@@ -1,4 +1,6 @@
 <script>
+ import MainFilm from './MainFilm.vue';
+ import MainTvSeries from './MainTvSeries.vue';
 
 import axios from "axios";
 import { store } from '../store.js'
@@ -8,6 +10,10 @@ export default{
         return{
             store,
         }
+    },
+    components:{
+        MainFilm,
+        MainTvSeries,
     },
     methods:{
         getFilms(){
