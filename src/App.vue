@@ -5,11 +5,13 @@
   export default{
     components:{
       AppMain,
+      AppHeader,
     }
   }
 </script>
 
 <template>
+  <AppHeader />
   <AppMain />
 </template>
 
