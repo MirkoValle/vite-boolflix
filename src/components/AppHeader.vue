@@ -2,7 +2,7 @@
     import SearchBar from './SearchBar.vue';
     import { store } from '../store.js';
     import axios from "axios";
-    
+
 export default{
     data() {
         return{
@@ -24,7 +24,7 @@ export default{
         getTvSeries(){
             axios.get("https://api.themoviedb.org/3/search/tv?api_key=905fa6d4e23e042c6b367f07ef9be9ce&language=it&query=" + this.store.searched)
             .then((response) => {
-                this.store.tvSeries = response.data.results
+                this.store.Series = response.data.results
                 console.log(response.data.results)
             })
         }

@@ -2,6 +2,7 @@
 import MainFilm from './MainFilm.vue';
 import MainTvSeries from './MainTvSeries.vue';
 
+
 export default{
     data() {
         return{
