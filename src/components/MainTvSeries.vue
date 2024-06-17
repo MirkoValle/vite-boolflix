@@ -24,16 +24,16 @@ export default{
                 <div class="card__content">
                     <p class="card__title">{{ serie.name }}</p>
                     <p class="card__description">Titolo originale: <span>{{serie.original_name}}</span> </p>
-                    <p class="card__description"> Overview: <span class="overview">{{serie.overview}}</span> </p>
                     <div class="bottom-info">
                         <p class="card__description"> <span> <img :src="'https://flagsapi.com/' + serie.original_language.toUpperCase() + '/flat/32.png'"></span> </p>
                         <p class="card__description"> 
                             <div>
-                            <i v-for="star in (Math.floor(serie.vote_average / 2))" class="fa-solid fa-star"></i>
-                            <i v-for="star in (5 - Math.floor(serie.vote_average / 2))" class="fa-regular fa-star"></i>
+                                <i v-for="star in (Math.floor(serie.vote_average / 2))" class="fa-solid fa-star"></i>
+                                <i v-for="star in (5 - Math.floor(serie.vote_average / 2))" class="fa-regular fa-star"></i>
                             </div>
                         </p>
                     </div>
+                    <p class="card__description"> Overview: <span class="overview">{{serie.overview}}</span> </p>
                 </div>
             </div>
         </article>
@@ -47,12 +47,11 @@ h1{
     color: white;
     padding-left: 1rem;
     padding-bottom: 1rem;
+}
+h1.vuoto{
+        margin-top: 10rem;
+    }
 
-    }
-    
-    h1.vuoto{
-        margin-top: 15rem;
-    }
 section{
     display: flex;
     overflow: scroll;
@@ -92,15 +91,12 @@ section{
 }
 
 .card__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     background-color: #000000d2;
     transform: rotateX(-90deg);
@@ -114,7 +110,7 @@ section{
 
 .card__title {
     margin: 0;
-    font-size: 24px;
+    font-size: 20px;
     color: #ffffff;
     font-weight: 700;
     max-height: 5.2rem;
@@ -136,17 +132,13 @@ section{
 
         }
 }
-        
-        span.overview{
-            display: block;
-            max-height: 1rem;
-            overflow: hidden;
-        }
 
 div.bottom-info{
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    img{
+        margin-right: 1rem;
+    }
 }
 
 i{
