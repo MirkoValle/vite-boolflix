@@ -7,6 +7,34 @@ export default{
     data() {
         return{
             store,
+            headerLinks:[
+                {
+                    id: 0,
+                    name: "Home",
+                    active: true,
+                },
+                {
+                    id: 1,
+                    name: "Film",
+                    active: false,
+                },
+                {
+                    id: 2,
+                    name: "Serie TV",
+                    active: false,
+                },
+                {
+                    id: 3,
+                    name: "Nuovi e popolari",
+                    active: false,
+                },
+                {
+                    id: 4,
+                    name: "La mia lista",
+                    active: false,
+                }
+            ],
+            activeLink: 0,
         }
     },
     components:{
@@ -25,8 +53,23 @@ export default{
             .then((response) => {
                 this.store.Series = response.data.results
             })
-        }
+        },
+
+        changeIndex:function(index){
+            this.activeLink = index;
+            this.changeActive()
+        },
+
+        changeActive: function(){
+            this.headerLinks.forEach((link, index) => {
+                if (index == this.activeLink) {
+                    link.active = 'true';
+                } else {
+                    link.active = 'false'
+                }
+            });
     },
+}
 }
 </script>
 
@@ -34,9 +77,19 @@ export default{
     <section>
         <div class="logo">
             <img src="../assets/img/Logo.png" alt="">
+            <nav>
+                <ul>
+                    <li v-for="(link, index) in headerLinks" :key="index" :class="(link.active == 'true') ? 'active' : ''" @click="changeIndex(index)">
+                        {{ link.name }}
+                    </li>
+                </ul>
+            </nav>
         </div>
         <div>
             <SearchBar @search="getFilms(); getTvSeries();"/>
+            <i class="fa-solid fa-bell"></i>
+            <i class="fa-solid fa-user user"></i>
+            <i class="fa-solid fa-caret-down"></i>
         </div>
 
     </section>
@@ -50,5 +103,45 @@ export default{
         align-items: center;
         padding: 0 5rem 0 2rem;
 
+        div{
+            display: flex;
+            align-items: center;
+            i{
+                color: white;
+                margin-right: 1rem;
+                cursor: pointer;
+            }
+            i.user{
+                color: white;
+                margin-right: 1rem;
+                background-color: #838383;
+                padding: .6rem;
+                border-radius: 50%;
+                margin-right: .2rem;
+            }
+        }
+        ul{
+            display: flex;
+            li{
+                color: white;
+                margin-left: 1rem;
+                cursor: pointer;
+                color: #b6b6b6;
+
+                &.active{
+                    color: white;
+                    cursor: default;
+                    &:hover{
+                    color: white;
+                    }   
+                    
+                }
+
+                &:hover{
+                    color: #838383;
+                }
+            }
+
+        }
     }
 </style>
