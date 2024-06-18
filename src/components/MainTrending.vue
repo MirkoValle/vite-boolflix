@@ -23,7 +23,7 @@ export default{
                     <p class="card__title">{{ trending.title || trending.name}} </p>
                     <p class="card__description">Titolo originale: <span>{{trending.original_title || trending.original_name}}</span> </p>
                     <div class="bottom-info">
-                        <p class="card__description"> <span> <img :src="'https://flagsapi.com/' + trending.original_language.toUpperCase() + '/flat/32.png'"></span> </p>
+                        <p class="card__description"> <span> <img class="lang-icon" :class="'lang-icon-' + trending.original_language"></span> </p>
                         <p class="card__description"> 
                             <div>
                             <i v-for="star in (Math.floor(trending.vote_average / 2))" class="fa-solid fa-star"></i>
@@ -48,7 +48,7 @@ export default{
                     <p class="card__title">{{ trending.title || trending.name}} </p>
                     <p class="card__description">Titolo originale: <span>{{trending.original_title || trending.original_name}}</span> </p>
                     <div class="bottom-info">
-                        <p class="card__description"> <span> <img :src="'https://flagsapi.com/' + trending.original_language.toUpperCase() + '/flat/32.png'"></span> </p>
+                        <p class="card__description"> <span> <img class="lang-icon" :class="'lang-icon-' + trending.original_language"></span> </p>
                         <p class="card__description"> 
                             <div>
                             <i v-for="star in (Math.floor(trending.vote_average / 2))" class="fa-solid fa-star"></i>
@@ -64,6 +64,11 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+@use "../../node_modules/@textabledev/langs-flags-list/lang-flags.css" as *;
+
+.lang-icon {
+    background-image: url(../assets/img/lang-flags.png);
+}
 
 h1{
     color: white;

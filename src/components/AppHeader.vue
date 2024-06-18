@@ -64,10 +64,8 @@ export default{
             this.headerLinks.forEach((link, index) => {
                 if (index == this.activeLink) {
                     link.active = 'true';
-                    console.log("ciao")
                 } else {
                     link.active = 'false'
-                    console.log("no")
                 }
             });
 

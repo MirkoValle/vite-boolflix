@@ -25,7 +25,7 @@ export default{
                     <p class="card__title">{{ serie.name }}</p>
                     <p class="card__description">Titolo originale: <span>{{serie.original_name}}</span> </p>
                     <div class="bottom-info">
-                        <p class="card__description"> <span> <img :src="'https://flagsapi.com/' + serie.original_language.toUpperCase() + '/flat/32.png'"></span> </p>
+                        <p class="card__description"> <span> <img class="lang-icon" :class="'lang-icon-' + serie.original_language"></span> </p>
                         <p class="card__description"> 
                             <div>
                                 <i v-for="star in (Math.floor(serie.vote_average / 2))" class="fa-solid fa-star"></i>
@@ -42,6 +42,11 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+@use "../../node_modules/@textabledev/langs-flags-list/lang-flags.css" as *;
+
+.lang-icon {
+    background-image: url(../assets/img/lang-flags.png);
+}
 
 h1{
     color: white;
