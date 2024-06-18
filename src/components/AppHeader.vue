@@ -64,12 +64,21 @@ export default{
             this.headerLinks.forEach((link, index) => {
                 if (index == this.activeLink) {
                     link.active = 'true';
+                    console.log("ciao")
                 } else {
                     link.active = 'false'
+                    console.log("no")
                 }
             });
+
+
+        },
+
+
     },
-}
+    created(){
+        this.changeIndex(0)
+    },
 }
 </script>
 
@@ -124,7 +133,7 @@ export default{
             display: flex;
             li{
                 color: white;
-                margin-left: 1rem;
+                margin-left: 3rem;
                 cursor: pointer;
                 color: #b6b6b6;
 
