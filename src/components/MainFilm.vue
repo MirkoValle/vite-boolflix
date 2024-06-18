@@ -107,13 +107,13 @@ section:first-child{
     padding: 10px;
     box-sizing: border-box;
     background-color: #000000d2;
-    transform: rotateX(-90deg);
+    transform: rotateY(90deg);
     transform-origin: bottom;
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.6s;
 }
 
 .card:hover .card__content {
-    transform: rotateX(0deg);
+    transform: rotateY(0deg);
 }
 
 .card__title {
