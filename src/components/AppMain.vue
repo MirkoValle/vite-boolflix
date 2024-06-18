@@ -50,9 +50,9 @@ export default{
 
 <style lang="scss" scoped>
     main{
-        background-color: #212121;
         height: calc(100vh - 99px);
         padding: 2rem 5rem;
+        position: relative;
     }
 
 </style>

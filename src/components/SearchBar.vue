@@ -18,7 +18,7 @@ export default{
             <div class="line "></div>
             <div class="line "></div>
         </div> -->
-        <i v-if="this.store.searched.length > 0" class="fa-solid fa-xmark" @click="this.store.searched=''"></i>
+        <i v-if="this.store.searched.length > 0" class="fa-solid fa-xmark" @click="this.store.searched=''; console.log(this.store.searched)"></i>
     </div>
 </template>
 
